@@ -7,8 +7,12 @@ import api from '../../hooks/api';
 export default function SignUp() {
   const [newData, setNewData] = useState({
     username: '',
-    emailAddress: '',
+    email: '',
+    firstName: '',
+    lastName: '',
     password: '',
+    role: 'user',
+    phoneNumber: '',
   });
 
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -61,7 +65,7 @@ export default function SignUp() {
 
     if (
       newData.username.trim() === "" ||
-      newData.emailAddress.trim() === "" ||
+      newData.email.trim() === "" ||
       newData.password.trim() === "" ||
       confirmPassword.trim() === ""
     ) {
@@ -128,8 +132,8 @@ export default function SignUp() {
             <input
               type="email"
               className="bg-accent py-2 w-full rounded-2xl outline-none hover:outline-none focus:outline-none hover:bg-gray-500 text-black hover:text-fontColor text-center"
-              name="emailAddress"
-              value={newData.emailAddress}
+              name="email"
+              value={newData.email}
               onChange={handleChange}
               title="Email Address Must Follow The 'email@example.com' Format"
             />
